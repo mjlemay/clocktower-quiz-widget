@@ -14,14 +14,29 @@ const defaultCharacter = {
   north: 0,
   south: 0,
   deception: 0,
-  persuasion: 0,
+  insight:0,
+  intimidation: 0,
+  investigation:0,
+  medicine: 0,
+  perception:0,
   performance: 0,
+  persuasion: 0,
+  survival: 0,
 }
 
 // array keys to keep things flat
 const stats = ['cha', 'con', 'int', 'str', 'wis', 'dex'];
 const tally = ['east', 'west', 'north', 'south'];
-const prof =['deception', 'persuasion', 'performance']
+const prof =[
+  'deception',
+  'insight',
+  'intimidation',
+  'investigation',
+  'medicine',
+  'perception',
+  'performance',
+  'persuasion',
+  'survival']
 
 function App() {
   const [dimentions, setDimentions] = useState({});

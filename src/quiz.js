@@ -67,29 +67,91 @@ const quiz = {
           {
             text:'Something Evil.',
             mods: [
-              {east:'+', deception: 1},
-              {east:'+', deception: 1},
+              {east:'+', deception: '+'},
+              {east:'+', deception: '+'},
             ]
           },
           {
             text:'Something without a heart.',
             mods: [
-              {east:'+', west: '+', persuasion: 1},
-              {east:'+', west: '+', persuasion: 1},
+              {east:'+', west: '+', persuasion: '+'},
+              {east:'+', west: '+', persuasion: '+'},
             ]
           },
           {
             text:'Something without a soul.',
             mods: [
-              {east:'+', south: '+', performance: 1},
-              {east:'+', south: '+', performance: 1},
+              {east:'+', south: '+', performance: '+'},
+              {east:'+', south: '+', performance: '+'},
             ]
           },
           {
             text:'Something dangerous.',
             mods: [
-              {north:'+', intimidation: 1},
-              {north:'+', intimidation: 1},
+              {north:'+', intimidation: '+'},
+              {north:'+', intimidation: '+'},
+            ]
+          }
+        ]
+      },
+      {
+        prompt: `Even though you’ve been through so much strife along the way, And you're so tired. You have become stronger with every step of your journey--surviving things no traveler should survive.`,
+        question: `What has become strongest?`,
+        limit: 1,
+        choices: [
+          {
+            text:'My eyes.',
+            mods: [
+              {south:'+', insight: '+'},
+            ]
+          },
+          {
+            text:'My body.',
+            mods: [
+              {north:'+', west: '+', survival: '+'},
+            ]
+          },
+          {
+            text:'My endurance.',
+            mods: [
+              {east:'+', south: '+', medicine: '+'},
+            ]
+          },
+          {
+            text:'My reflexes.',
+            mods: [
+              {west:'+', perception: '+'},
+            ]
+          }
+        ]
+      },
+      {
+        prompt: `But throughout everything it’s not just your body that has grown. Your mind--maybe even your soul--has come so far in your journey with you.`,
+        question: `Which of your abilities has grown the most?`,
+        limit: 1,
+        choices: [
+          {
+            text:'My ability to make choices.',
+            mods: [
+              {east:'+', arcana: '+'},
+            ]
+          },
+          {
+            text:'My ability to understand.',
+            mods: [
+              {north:'+',  religion: '+'},
+            ]
+          },
+          {
+            text:'My ability to trust your gut.',
+            mods: [
+              {west:'+', history: '+'},
+            ]
+          },
+          {
+            text:'My ability to see things as they really are.',
+            mods: [
+              {south:'+', investigation: '+'},
             ]
           }
         ]
