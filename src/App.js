@@ -10,7 +10,8 @@ function App() {
 
   const styles ={
     ...dimentions,
-    background: 'rgba(255,255,255, 0.125)'
+    background: 'rgba(0,0,0, 0.75x)',
+    color: '#fff'
   }
 
   useEffect(() => {

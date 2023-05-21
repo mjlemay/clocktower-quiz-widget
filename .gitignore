@@ -10,9 +10,10 @@
 
 # production
 /build
+/widgets
 
 # parcel 
-.cache
+.parcel-cache
 
 # misc
 .DS_Store
