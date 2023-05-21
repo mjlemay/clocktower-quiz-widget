@@ -3,24 +3,26 @@ import quiz from './quiz';
 
 const ASPECT_RATIO = 0.75; // ~3:4
 const defaultCharacter = {
-  cha:13,
-  con:13,
-  int:13,
-  str:8,
-  wis:8,
-  dex:8,
+  cha: 13,
+  con: 13,
+  int: 13,
+  str: 8,
+  wis: 8,
+  dex: 8,
   east: 0,
   west: 0,
   north: 0,
   south: 0,
   deception: 0,
-  insight:0,
+  insight: 0,
   intimidation: 0,
-  investigation:0,
+  investigation: 0,
+  history: 0,
   medicine: 0,
-  perception:0,
+  perception: 0,
   performance: 0,
   persuasion: 0,
+  religion: 0,
   survival: 0,
 }
 
@@ -52,6 +54,11 @@ function App() {
     height,
     background: 'rgba(0,0,0, 0.75)',
     color: '#fff'
+  }
+
+  const numToText = num => {
+    const numTextArr = ['ONE', 'TWO', 'THREE', 'FOUR']
+    return numTextArr[num - 1];
   }
 
   const  buildCharacter = function (obj) {
@@ -101,7 +108,10 @@ function App() {
     <div className="app" style={styles} ref={appRef}>
       {section === 'start' && (
         <div>
-          <h1>This test/personality quiz is used to create a first level d&d 5e Character sheet for a level 1 clocktower agent which is a custom class.</h1>
+          <div className="question">
+            <p>This is a test used to create a first level <span>Clocktower Agent</span>,
+            a custom class for Dungeons & Dragons 5th edition.</p>
+          </div>
           <div className="choices">
             <button className="choice" onClick={()=> setSection('quiz')}>START</button>
           </div>
@@ -111,6 +121,7 @@ function App() {
         <div>
           <div className="prompt"><p>{quiz.pages[page].prompt}</p></div>
           <div className="question"><p>{quiz.pages[page].question}</p></div>
+          <div className="select"><p>SELECT {numToText(quiz.pages[page].limit) || 'ONE'}</p></div>
           <div className="choices">
           {quiz.pages[page].choices ? quiz.pages[page].choices.map((choice, index) => { 
             return (

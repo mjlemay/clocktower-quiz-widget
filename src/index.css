@@ -8,6 +8,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  border-radius: 50;
 }
 
 .app {
@@ -26,6 +27,10 @@ body {
   font-size: 22px;
   width: 100%;
   text-align: center;
+}
+.question span {
+  font-weight: 900;
+  text-shadow: 1px 1px 4px rgba(202, 255, 247, 0.5);
 }
 
 .choices {
@@ -50,9 +55,11 @@ body {
 
 .choice:hover {
   color: #ffffff;
+  text-shadow: 1px 1px 8px #fff;
 }
 
 .choice[disabled] {
   color: #ffffff;
   pointer-events: none;
+  text-shadow: 1px 1px 8px #fff;
 }
