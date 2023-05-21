@@ -1,15 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
+
 body {
   margin: 0;
   color: #fff;
-  background: #000;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  background: transparent;
+  font-family: 'Nunito', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.app {
+  padding: 20px;
+  text-align: center;
+}
+
+.prompt {
+  font-weight:500;
+  font-size: 22px;
+  text-align: center;
+}
+
+.question {
+  font-weight:800;
+  font-size: 22px;
+  width: 100%;
+  text-align: center;
+}
+
+.choices {
+  margin: 0 auto;
+}
+
+.choice {
+  display: block;
+  font-weight:600;
+  color: #ccc;
+  border: 2px solid #666;
+  filter: drop-shadow(10px 10px 4px #000);
+  padding: 16px;
+  font-size: 18px;
+  border-radius: 10px;
+  background: rgb(55, 59, 77, 0.75);
+  width: 100%;
+  min-width: 40%;
+  margin: 16px 0;
+  cursor: pointer;
+}
+
+.choice:hover {
+  color: #ffffff;
+}
+
+.choice[disabled] {
+  color: #ffffff;
+  pointer-events: none;
 }
