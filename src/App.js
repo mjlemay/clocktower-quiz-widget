@@ -4,20 +4,20 @@ import React, { useState, useEffect, useRef } from 'react'
 const ASPECT_RATIO = 0.75; // ~3:4
 
 function App() {
-  const [dimentions, setDimentions] = useState({ width: 0, height:0 });
+  const [dimentions, setDimentions] = useState({});
   const appRef = useRef(null);
   const { width, height } = dimentions;
 
   const styles ={
     ...dimentions,
-    border: '1px solid red',
+    background: 'rgba(255,255,255, 0.125)'
   }
 
   useEffect(() => {
-    const width = appRef.current.clientWidth;
-    const height = appRef.current.clientWidth * ASPECT_RATIO;
-    setDimentions({width, height})
-  }, [dimentions]);
+    const newWidth = appRef.current.clientWidth;
+    const newHeight = appRef.current.clientWidth * ASPECT_RATIO;
+    newWidth !== width && setDimentions({ width: newWidth, height: newHeight });
+  }, [width]);
 
   return (
     <div className="App" style={styles} ref={appRef}>
