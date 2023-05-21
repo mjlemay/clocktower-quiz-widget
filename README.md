@@ -1,10 +1,6 @@
 # clocktower-quiz-widget
 A quiz widget that generates a pdf with details of your clocktower agent class for dnd 5e
 
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Available Scripts
 
 In the project directory, you can run:
