@@ -89,7 +89,7 @@ function App() {
   const descTemplate = 
     `An around ${bodyWeight} ${gender} individual of ${shade} ${skin} complexion.
     The ${accessory} covering them does not mask the depth of thier ${shade} ${eyes} eyes nor
-    obscure thier ${hairLength} ${shade} ${hairColor} hair. Standing ${bodyHeight} tall,
+    obscure thier ${hairLength} ${shade} ${hairColor} hair. Standing about ${bodyHeight} tall,
     their ${grooming} style is evident with a ${outerCovering} cloaking their frame. ${extraLooks}`;
 
   const styles ={
@@ -275,7 +275,7 @@ function App() {
                 style={{width: `${hairColor.length + 1}ch`}}
                 onChange={changeHandler}
                 onFocus={focusHandler}
-              /> hair. Standing&nbsp;
+              /> hair. Standing about&nbsp;
               <input
                 name="bodyHeight"
                 value={bodyHeight}
