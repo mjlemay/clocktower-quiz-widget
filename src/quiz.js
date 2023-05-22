@@ -460,7 +460,7 @@ const quiz = {
           {
             text:`I straighten myself up and proceed through the door.`,
             mods: [
-              {trinket:`musical nstrument`},
+              {trinket:`musical instrument`},
             ]
           },
           {
