@@ -151,7 +151,7 @@ const quiz = {
           {
             text:`A large field, but not overwhelming.`,
             mods: [
-              {west:`heavyset`},
+              {bodyWeight:`heavyset`},
             ]
           }
         ]
