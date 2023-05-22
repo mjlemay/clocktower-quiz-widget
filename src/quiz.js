@@ -486,25 +486,25 @@ const quiz = {
           {
             text:`The Divine Comedy by Dante Alighieri`,
             mods: [
-                {west:`+`},
+                {west:`+`, tiebreakClass: `west`},
             ]
           },
           {
             text:`The Lurking Fear by H.P. Lovecraft`,
             mods: [
-                {south:`+`},
+                {south:`+`, tiebreakClass: `south`},
             ]
           },
           {
             text:`The Picture of Dorian Grey by Oscar Wilde`,
             mods: [
-                {north:`+`},
+                {north:`+`, tiebreakClass: `north`},
             ]
           },
           {
             text:`Alice in Wonderland by Lewis Carroll`,
             mods: [
-                {east:`+`},
+                {east:`+`, tiebreakClass: `east`},
             ]
           }
         ]

@@ -43,6 +43,7 @@ const defaultCharacter = {
   weaponSetA: 0,
   weaponSetB: 0,
   metal: 'bronze',
+  tiebreakClass: null,
 }
 
 // array keys to keep things flat
