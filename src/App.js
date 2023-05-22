@@ -88,7 +88,7 @@ function App() {
   } = character;
 
   const descTemplate = 
-    `An around ${bodyWeight} ${gender} individual of ${shade} ${skin} complexion.
+    `A ${bodyWeight} ${gender} individual of ${shade} ${skin} complexion.
     The ${accessory} covering them does not mask the depth of thier ${shade} ${eyes} eyes nor
     obscure thier ${hairLength} ${shade} ${hairColor} hair. Standing about ${bodyHeight} tall,
     their ${grooming} style is evident with a ${outerCovering} cloaking their frame. ${extraLooks}`;
@@ -204,7 +204,7 @@ function App() {
           <div className="question"><p>But something's not right. Change one thing about your character's appearance.</p></div>
           <div className="select"><p>MODIFY ONE</p></div>
           <div className="editbox">
-            <p>Before you, an around&nbsp;
+            <p>Before you, a &nbsp;
               <input
                 name="bodyWeight"
                 value={bodyWeight}
