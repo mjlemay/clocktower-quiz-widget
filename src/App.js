@@ -94,8 +94,6 @@ function App() {
 
   const styles ={
     height,
-    background: 'rgba(0,0,0, 0.75)',
-    color: '#fff'
   }
 
   const numToText = num => {
@@ -149,7 +147,6 @@ function App() {
   useEffect(() => {
     if (section === 'edit' && !hasCloned) {
       const clone = JSON.parse(JSON.stringify(character));
-      console.log('CLOMNGIN G')
       setBaseCharacter(clone);
       setHasCloned(true)
     }
@@ -164,7 +161,6 @@ function App() {
   }
 
   const focusHandler = event => {
-    console.log('baseCharacter', baseCharacter);
     setCharacter(baseCharacter);
   }
 
@@ -172,7 +168,7 @@ function App() {
     <div className="app" style={styles} ref={appRef}>
       {section === 'start' && (
         <div>
-          <div className="question">
+          <div className="heading">
             <p>This is a test used to create a first level <span>Clocktower Agent</span>,
             a custom class for Dungeons & Dragons 5th edition.</p>
           </div>
@@ -206,7 +202,7 @@ function App() {
           <div className="prompt"><p>Inside is nothing but a small table and a mirror. As you approach the table you see a pile of gear and weapons. You recognize them, because they are yours. You put on your things and Inspect the mirror. You are surprised to see yourself--or rather who you have become through this journey.</p></div>
           <div className="question"><p>But something's not right. Change one thing about your character's appearance.</p></div>
           <div className="select"><p>MODIFY ONE</p></div>
-          <div className="prompt">
+          <div className="editbox">
             <p>Before you, a&nbsp;
               <input
                 name="bodyWeight"

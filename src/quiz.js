@@ -1,7 +1,7 @@
 const quiz = {
     pages: [
       {
-        prompt: `You have traveled for a very long time though Strange and brutal lands seeking something. 
+        prompt: `You have traveled for a very long time though strange and brutal lands seeking something. 
         Trouble is, it's been so long that you can't remember what you're seeking.
         In truth you can't remember anything. 
         As you try to recall your travels an early memory is dredged up--one of pain and loss.`,
@@ -285,7 +285,7 @@ const quiz = {
          You're dreams are strange and twisted that night. You dream of a Large clock tower with a blank face.
           Its hands move in opposite directions and Tick at different speeds.
            Whatever it is that you seek you know that the answers will be found there.
-        Your awoken by the wind. `,
+        You're awoken by the wind. `,
         question: `What kind of wind?`,
         limit: 1,
         choices: [
@@ -302,7 +302,7 @@ const quiz = {
             ]
           },
           {
-            text:`Your awoken by the wind because you realize there isn't any. Your mind sensing the oddiety stirs you awake.`,
+            text:`You're awoken by the wind because you realize there isn't any. Your mind sensing the oddiety stirs you awake.`,
             mods: [
               {gender:`non-binary`},
             ]
@@ -310,7 +310,7 @@ const quiz = {
         ]
       },
       {
-        prompt: `Now awakened you see your things beside you where you left them. Undisturbed you look around, Things seem the same.`,
+        prompt: `Now awakened you see your things beside you where you left them. Undisturbed you look around, things seem the same.`,
         question: `What do you do?`,
         limit: 1,
         choices: [
@@ -529,8 +529,8 @@ const quiz = {
         ]
       },
       {
-        prompt: ``,
-        question: `What do you do with the book when your finished with it?`,
+        prompt: `...`,
+        question: `What do you do with the book when you're finished with it?`,
         limit: 1,
         choices: [
           {
