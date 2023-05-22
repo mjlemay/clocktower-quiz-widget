@@ -24,6 +24,9 @@ const defaultCharacter = {
   persuasion: 0,
   religion: 0,
   survival: 0,
+  acrobatics: 0,
+  stealth: 0,
+  athletics:0,
   bodyWeight: 'unknown',
   hairColor: 'unknown',
   hairLength: 'average',
@@ -36,6 +39,10 @@ const defaultCharacter = {
   accessory: 'a blank expression',
   outerCovering: 'coat',
   extraLooks: ' ',
+  tinket: '',
+  weaponSetA: 0,
+  weaponSetB: 0,
+  metal: 'bronze',
 }
 
 // array keys to keep things flat
