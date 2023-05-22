@@ -76,15 +76,15 @@ const quiz = {
           {
             text:`Something without a heart.`,
             mods: [
-              {east:`+`, west:`+`, persuasion:`+`},
-              {east:`+`, west:`+`, persuasion:`+`},
+              {west:`+`, persuasion:`+`},
+              {west:`+`, persuasion:`+`},
             ]
           },
           {
             text:`Something without a soul.`,
             mods: [
-              {east:`+`, south:`+`, performance:`+`},
-              {east:`+`, south:`+`, performance:`+`},
+              {south:`+`, performance:`+`},
+              {south:`+`, performance:`+`},
             ]
           },
           {
@@ -111,13 +111,13 @@ const quiz = {
           {
             text:`My body.`,
             mods: [
-              {north:`+`, west:`+`, survival:`+`},
+              {north:`+`, survival:`+`},
             ]
           },
           {
             text:`My endurance.`,
             mods: [
-              {east:`+`, south:`+`, medicine:`+`},
+              {east:`+`, medicine:`+`},
             ]
           },
           {
@@ -596,12 +596,6 @@ const quiz = {
         question: `How do you go about opening it?`,
         limit: 1,
         choices: [
-          {
-            text:`I get a run, and jump the distance.`,
-            mods: [
-                {acrobatics:`+`},
-            ]
-          },
           {
             text:`I search around the stairwell until I find the key.`,
             mods: [
