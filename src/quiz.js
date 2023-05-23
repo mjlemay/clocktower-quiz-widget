@@ -145,7 +145,7 @@ const quiz = {
           {
             text:`A field No bigger or smaller than most.`,
             mods: [
-              {bodyWeight:`regular sized`},
+              {bodyWeight:`average weight`},
             ]
           },
           {

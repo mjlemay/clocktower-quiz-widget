@@ -88,10 +88,10 @@ function App() {
   } = character;
 
   const descTemplate = 
-    `A ${bodyWeight} ${gender} individual of ${shade} ${skin} complexion.
-    The ${accessory} covering them does not mask the depth of thier ${shade} ${eyes} eyes nor
-    obscure thier ${hairLength} ${shade} ${hairColor} hair. Standing about ${bodyHeight} tall,
-    their ${grooming} style is evident with a ${outerCovering} cloaking their frame. ${extraLooks}`;
+    `A ${gender} agent, who is around ${bodyHeight}, and ${bodyWeight} for their frame.
+    They have a ${shade} ${skin} complexion. The ${accessory} covering them does not mask the 
+    depth of their ${shade} ${eyes} eyes nor obscure their ${hairLength} ${shade} ${hairColor} hair.
+     Their ${grooming} style is evident with a ${outerCovering} cloaking their body. ${extraLooks}`;
 
   const styles ={
     height,
@@ -204,21 +204,28 @@ function App() {
           <div className="question"><p>But something's not right. Change one thing about your character's appearance.</p></div>
           <div className="select"><p>MODIFY ONE</p></div>
           <div className="editbox">
-            <p>Before you, a &nbsp;
-              <input
-                name="bodyWeight"
-                value={bodyWeight}
-                style={{width: `${bodyWeight.length + 1}ch`}}
-                onChange={changeHandler}
-                onFocus={focusHandler}
-              />&nbsp;
+            <p>In the mirror, you see a&nbsp;
                 <input
                 name="gender"
                 value={gender}
                 style={{width: `${gender.length + 1}ch`}}
                 onChange={changeHandler}
                 onFocus={focusHandler}
-              /> individual of&nbsp;
+              /> agent, whis is around &nbsp;
+              <input
+                name="bodyHeight"
+                value={bodyHeight}
+                style={{width: `${bodyHeight.length + 1}ch`}}
+                onChange={changeHandler}
+                onFocus={focusHandler}
+              />, and&nbsp;
+              <input
+                name="bodyWeight"
+                value={bodyWeight}
+                style={{width: `${bodyWeight.length + 1}ch`}}
+                onChange={changeHandler}
+                onFocus={focusHandler}
+              /> for their frame. They have a &nbsp;
               <input
                 name="shade"
                 value={shade}
@@ -276,28 +283,21 @@ function App() {
                 style={{width: `${hairColor.length + 1}ch`}}
                 onChange={changeHandler}
                 onFocus={focusHandler}
-              /> hair. Standing about&nbsp;
+              /> hair. Thier&nbsp;
               <input
-                name="bodyHeight"
-                value={bodyHeight}
-                style={{width: `${bodyHeight.length + 1}ch`}}
+                name="grooming"
+                value={grooming}
+                style={{width: `${grooming.length + 1}ch`}}
                 onChange={changeHandler}
                 onFocus={focusHandler}
-              />  tall, their&nbsp;
-              <input
-              name="grooming"
-              value={grooming}
-              style={{width: `${grooming.length + 1}ch`}}
-              onChange={changeHandler}
-              onFocus={focusHandler}
-            /> style is evident with a&nbsp;
+              />style is evident with a&nbsp;
             <input
                 name="outerCovering"
                 value={outerCovering}
                 style={{width: `${outerCovering.length + 1}ch`}}
                 onChange={changeHandler}
                 onFocus={focusHandler}
-              /> cloaking their frame.&nbsp;
+              /> cloaking their body.&nbsp;
             <input
                 name="extraLooks"
                 value={extraLooks}
