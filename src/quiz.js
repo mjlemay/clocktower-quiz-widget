@@ -460,19 +460,19 @@ const quiz = {
           {
             text:`I straighten myself up and proceed through the door.`,
             mods: [
-              {trinket:`musical instrument`},
+              {trinket:`Musical Instrument`},
             ]
           },
           {
             text:`I check all of my equipment and continue.`,
             mods: [
-              {trinket:`game set`},
+              {trinket:`Game Set`},
             ]
           },
           {
             text:`I catch my breath for a while, then carry on.`,
             mods: [
-              {trinket:`small idol`},
+              {trinket:`Small Idol`},
             ]
           }
         ]
@@ -599,13 +599,13 @@ const quiz = {
           {
             text:`I search around the stairwell until I find the key.`,
             mods: [
-                {metal:`gold`},
+                {metal:`Gold`},
             ]
           },
           {
             text:`I kick it in.`,
             mods: [
-                {metal:`silver`},
+                {metal:`Silver`},
             ]
           }
         ]

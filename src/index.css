@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;700&family=Nunito:wght@300&display=swap');
 
 body {
   margin: 0;
   color: #fff;
   background: transparent;
-  font-family: 'Nunito', 'Droid Sans', 'Helvetica Neue',
+  font-family: 'Nunito-Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -42,20 +42,20 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
   padding: 4px 16px;
   background-color: #3c3d4754;
   border-radius: 5px;
-  }
+}
 
-  .editbox {
-    font-weight: 600;
-    font-size: 20px;
-    text-align: left;
-    border: 1px solid #888;
-    border-top: 1px solid #ddd;
-    border-left: 1px solid #ddd;
-    padding: 4px 16px;
-    background-color: #292D3B;
-    border-radius: 3px;
-    margin: 0 16px;
-    }
+.editbox {
+  font-weight: 600;
+  font-size: 20px;
+  text-align: left;
+  border: 1px solid #888;
+  border-top: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  padding: 4px 16px;
+  background-color: #292D3B;
+  border-radius: 3px;
+  margin: 0 16px;
+}
 
 .question {
   margin: 10px 0;
@@ -69,6 +69,11 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 .heading span {
   font-weight: 900;
   text-shadow: 1px 1px 4px rgba(202, 255, 247, 0.5);
+}
+
+.select {
+  font-weight: 300;
+  text-transform: uppercase;
 }
 
 .choices {
@@ -112,3 +117,184 @@ input {
   font-weight: bold;
   border-bottom: 2px solid #fff;
 }
+
+.characterSheet {
+  font-size: 18px;
+  text-align: left;
+  border: 1px solid #666;
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  padding: 4px 16px;
+  background-color: #3c3d4754;
+  border-radius: 5px;
+}
+
+.statsRow {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: flex-start;
+  border-bottom: 10px;
+}
+.statBlock {
+  border: 2px solid #fff;
+  text-align: center;
+  width: 75px;
+  margin: 8px;
+  border-radius: 10px;
+}
+.statLabel {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 18px;
+  padding-top: 6px;
+}
+
+.blockLabel {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 18px;
+  padding-top: 6px;
+  text-align: left;
+}
+
+.statValue {
+  border-radius: 5px;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 4px;
+}
+
+.statBonus {
+  border: 1px solid #fff;
+  font-size: 20px;
+  margin: 3px 20px;
+  border-radius: 5px;
+  padding: 2px;
+  letter-spacing: -.25ch;
+}
+
+.charTitle {
+  line-height: 1em;
+  font-size: 2em;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.path {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 10px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+.path span {
+  font-weight: 300;
+  font-size: 0.75em;
+}
+
+.health {
+  border: 4px solid #fff;
+  height: 100px;
+  width: 100px;
+  border-radius: 30%;
+  text-align: center;
+}
+
+.health .statLabel {
+  padding-top: 20px;
+}
+
+.shield {
+  border: 4px solid #fff;
+  height: 100px;
+  width: 100px;
+  border-radius: 50% 50% 50% 50% / 12% 12% 88% 88%;
+  text-align: center;
+}
+
+.sheild, .health {
+  margin: 8px;
+}
+.columnBlock {
+  display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: stretch;
+	align-content: stretch;
+}
+.itemBlock {
+  border: 3px solid #fff;
+  border-radius: 20px;
+  padding: 4px 10px;
+  width: 48%;
+  height: 180px;
+  margin-right: 2%;
+}
+.itemBlock:last-child {
+  margin-right: 0;;
+}
+.itemFillBlock {
+  border: 3px solid #fff;
+  border-radius: 20px;
+  padding: 4px 10px;
+  width: 98%;
+  margin: 10px 0;
+}
+
+li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+ul li:before
+{
+    content: '\2610';
+    margin: 0 0.5em 0 0;    /* any design */
+}
+
+ul {
+  margin: 0;
+  padding: 10px 0 0;
+}
+
+@media print {
+  body {
+    color: #000 !important;
+    border-color:#000 !important;
+    font-size: 12px !important;
+  }
+  .health {
+    border: 5px solid #000 !important;
+    border: 0;
+  }
+  .shield {
+    border: 5px solid #000 !important;
+    margin: 0 4px 0 0;
+  }
+  .itemBlock, .itemFillBlock {
+    border: 3px solid #000 !important;
+    text-align: left !important;
+  }
+  .statBlock {
+    border: 2px solid #000 !important;
+    margin: 0 2px;
+    width: 60px;
+  }
+  .statLabel, .statValue {
+    scale: 0.75;
+  }
+  .statBonus {
+    border: 1px solid #000 !important;
+    white-space: nowrap;
+    width: 2.5ch;
+    margin-left: 5%;
+    width: 80%;
+  }
+}
+

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import quiz from './quiz';
 
 const ASPECT_RATIO = 0.75; // ~3:4
@@ -48,8 +48,8 @@ const defaultCharacter = {
 
 // array keys to keep things flat
 const stats = ['cha', 'con', 'int', 'str', 'wis', 'dex'];
-const tally = ['east', 'west', 'north', 'south'];
-const prof =[
+const ctClass = ['east', 'west', 'north', 'south'];
+const professions =[
   'deception',
   'insight',
   'intimidation',
@@ -58,7 +58,50 @@ const prof =[
   'perception',
   'performance',
   'persuasion',
-  'survival']
+  'survival',
+  'acrobatics',
+  'stealth',
+  'athletics',
+]
+
+const defaultctCharacter = {
+  name: 'Clocktower Agent',
+  hitPoints: 0,
+  armorClass: 0,
+  stats: {
+    cha: 0,
+    con: 0,
+    int: 0,
+    str: 0,
+    wis: 0,
+    dex: 0,
+  },
+  professions: {
+    athletics: 0,
+    acrobatics: 0,
+    sleightofhand: 0,
+    stealth: 0,
+    arcana: 0,
+    history: 0,
+    investigation: 0,
+    nature: 0,
+    religion: 0,
+    animalhandling: 0,
+    insight: 0,
+    medicine: 0,
+    perception: 0,
+    survival: 0,
+    deception: 0,
+    intimidation: 0,
+    performance: 0,
+    persuasion: 0,
+  },
+  ctClass: '',
+  equipment: [],
+  weapons: [],
+  traits: [],
+  description: '',
+}
 
 function App() {
   const [dimentions, setDimentions] = useState({});
@@ -68,7 +111,9 @@ function App() {
   const [selectArr, setSelectArr] = useState([]);
   const [character, setCharacter] = useState(defaultCharacter);
   const [baseCharacter, setBaseCharacter] = useState({});
+  const [ctCharacter, setCtCharacter] = useState(defaultctCharacter);
   const [hasCloned, setHasCloned] = useState(false);
+  const [hasCalculated, setHasCalculated] = useState(false);
   const appRef = useRef(null);
   const { height } = dimentions;
 
@@ -97,12 +142,32 @@ function App() {
     height,
   }
 
+  // const diceRoll = d => {
+  //   return Math.floor(Math.random() * d + 1);
+  // }
+
+  function toTitleCase(str) {
+    return str.toLowerCase().split(' ').map(function (word) {
+      return (word.charAt(0).toUpperCase() + word.slice(1));
+    }).join(' ');
+  }
+
+  const abilityMod = stat => {
+    let mod = 0;
+    if (stat <= 7) { mod = -2; }
+    if (stat <= 9) { mod = -1; }
+    if (stat >= 12) { mod = 1; }
+    if (stat >= 14) { mod = 2; }
+    if (stat >= 16) { mod = 3; }
+    return mod;
+  }
+
   const numToText = num => {
     const numTextArr = ['ONE', 'TWO', 'THREE', 'FOUR']
     return numTextArr[num - 1];
   }
 
-  const  buildCharacter = function (obj) {
+  const buildCharacter = obj => {
     const updatedCharacter = JSON.parse(JSON.stringify(character));
     for (var prop in obj) {
       if (obj.hasOwnProperty(prop)) {
@@ -117,6 +182,68 @@ function App() {
     }
     setCharacter(updatedCharacter);
   };
+
+  const buildCtCharSheet = useCallback(characterData => {
+    const newCtAgent = JSON.parse(JSON.stringify(defaultctCharacter));
+    //set description
+    newCtAgent.description = descTemplate;
+
+    //stats
+    for (let i = 0; i < stats.length; i++) {
+      newCtAgent.stats[stats[i]] = character[stats[i]];
+    }
+
+    // traits
+    const traits = [`Immune to any spell or effect that would alter its form.`];
+    newCtAgent.traits = traits;
+
+    //professions 
+    for (let i = 0; i < professions.length; i++) {
+      newCtAgent.professions[professions[i]] = character[professions[i]];
+    }
+
+    // hit points
+    newCtAgent.hitPoints = 6 + parseInt(abilityMod(character.con)); // 6 + CON mod
+
+    // hit points
+    newCtAgent.armorClass = 12 + parseInt(abilityMod(character.dex)); // 12 + dex mod
+
+
+    // determine class 
+    let highCount = 0;
+    for (let i = 0; i < ctClass.length; i++) {
+      let classScore = character[ctClass[i]];
+      if (classScore > highCount) {
+        highCount = classScore;
+        newCtAgent.ctClass = ctClass[i];
+      }
+    }
+    //tiebreak on duplicate high scores
+    let doulbeHighCount = 0;
+    for (let i = 0; i < ctClass.length; i++) {
+      if (character[ctClass[i]] === highCount) {
+        doulbeHighCount++
+      }
+    }
+    if (doulbeHighCount > 1) {
+      newCtAgent.ctClass = character.tiebreakClass;
+    }
+    //add items
+    const prefixAccessory = accessory => {
+      let prefix = accessory === 'hat' ? 'wide brimmed' : 'a pair of';
+      return accessory === 'jewlery' ?  accessory : `${prefix} ${accessory}`;
+    }
+    const equipment = [
+      `Ornate Eldritch Weapon (1D6 + 1)`,
+      `Clock Tower Garb (12 + DEX)`,
+      `${character.metal} Pocket Watch`,
+      `${prefixAccessory(character.accessory)}`, 
+      `${character.trinket}`
+    ]
+    newCtAgent.equipment = equipment;
+
+    setCtCharacter(newCtAgent);
+  }, [character, descTemplate]);
 
   const nextPage = () => {
     const selected = page + 1;
@@ -145,13 +272,18 @@ function App() {
     setDimentions({ width: newWidth, height: newHeight });
   }, []);
 
+  //update values as we go through the sections
   useEffect(() => {
     if (section === 'edit' && !hasCloned) {
       const clone = JSON.parse(JSON.stringify(character));
       setBaseCharacter(clone);
       setHasCloned(true)
     }
-  }, [character, hasCloned, section]);
+    if (section === 'results'  && !hasCalculated) {
+      buildCtCharSheet(baseCharacter);
+      setHasCalculated(true)
+    }
+  }, [character, hasCloned, hasCalculated, section, buildCtCharSheet, baseCharacter]);
 
   const changeHandler = event => {
     const modValue = event.target.value;
@@ -310,15 +442,73 @@ function App() {
           <button className="choice" onClick={()=> setSection('results')}>CONTINUE</button>
           </div>
         </div>
-      )}  
-      {section === 'results' &&  (
+      )}
+      {(section === 'results' && hasCalculated) && (
         <div>
-          <div style={{maxHeight: height - 50, overflow: 'auto'}}>
-            <p>
-            {JSON.stringify(character)}
-            </p>
-            <div className="prompt">
-              <p>{descTemplate}</p>
+          <div className="characterSheet">
+            <div>
+              <h1 className="charTitle">Clock Tower Agent</h1>
+              <h3 className="path">Path of the {ctCharacter.ctClass}  <span>Level 1 Human</span></h3>
+              <div className="statsRow">
+              <div className="health">
+                  <div className="statLabel">
+                      Health
+                  </div>
+                  <div className="statValue">
+                     __ / {ctCharacter.hitPoints}
+                  </div>
+                </div>
+                <div className="shield">
+                  <div className="statLabel">
+                      Armor Class
+                  </div>
+                  <div className="statValue">
+                    {ctCharacter.armorClass}
+                  </div>
+                </div>
+                {Object.entries(ctCharacter.stats).map( entry => {
+                  const mod = abilityMod(entry[1]);
+                  return (
+                    <div className="statBlock" key={entry[0]}>
+                      <div className="statLabel">
+                      {entry[0]}
+                      </div>
+                      <div className="statValue">
+                      {entry[1]}
+                      </div>
+                      <div className="statBonus">
+                        {mod > 0 ? `+ ${mod}` : mod }
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+              <div className="columnBlock">
+              <div className="itemBlock">
+                <div className="blockLabel">Equipment</div>
+                <ul>
+                {ctCharacter.equipment.map( item => {
+                  return (<li key={item}>{toTitleCase(item)}</li>)}
+                )}
+                </ul>
+              </div>
+              <div className="itemBlock">
+                <div className="blockLabel">Known Skills</div>
+                <ul>
+                {professions.map( prof => {
+                  return (ctCharacter.professions[prof] >= 1 && <li key={prof}>{toTitleCase(prof)}</li>)}
+                )}
+                </ul>
+              </div>
+              </div>
+              <div className="itemFillBlock">
+                <div className="blockLabel">Description</div>
+                <p>{ctCharacter.description}</p>
+              </div>
+              <div className="itemFillBlock">
+                <div className="blockLabel">Traits</div>
+                <p>{ctCharacter.traits[0]}</p>
+              </div>
             </div>
           </div>
         </div>
