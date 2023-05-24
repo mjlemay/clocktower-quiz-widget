@@ -343,7 +343,7 @@ function App() {
                 style={{width: `${gender.length + 1}ch`}}
                 onChange={changeHandler}
                 onFocus={focusHandler}
-              /> agent, whis is around &nbsp;
+              /> agent, who is around &nbsp;
               <input
                 name="bodyHeight"
                 value={bodyHeight}
