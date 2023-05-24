@@ -97,6 +97,7 @@ const defaultctCharacter = {
     persuasion: 0,
   },
   ctClass: '',
+  ctWeapon: '',
   equipment: [],
   weapons: [],
   traits: [],
@@ -208,6 +209,8 @@ function App() {
     // hit points
     newCtAgent.armorClass = 12 + parseInt(abilityMod(character.dex)); // 12 + dex mod
 
+    //determine weapon
+    newCtAgent.ctWeapon = character.weaponSetA > character.weaponSetB ? 'A' : 'B';
 
     // determine class 
     let highCount = 0;
@@ -447,8 +450,8 @@ function App() {
         <div>
           <div className="characterSheet">
             <div>
-              <h1 className="charTitle">Clock Tower Agent</h1>
-              <h3 className="path">Path of the {ctCharacter.ctClass}  <span>Level 1 Human</span></h3>
+              <h1 className="charTitle">Clock Tower Agent <span> Level 1</span></h1>
+              <h3 className="path">Path of the {ctCharacter.ctClass}  <span>Fighting Style {ctCharacter.ctWeapon}</span></h3>
               <div className="statsRow">
               <div className="health">
                   <div className="statLabel">
@@ -506,7 +509,7 @@ function App() {
                 <p>{ctCharacter.description}</p>
               </div>
               <div className="itemFillBlock">
-                <div className="blockLabel">Traits</div>
+                <div className="blockLabel">Clock Tower Human Variant Trait</div>
                 <p>{ctCharacter.traits[0]}</p>
               </div>
             </div>

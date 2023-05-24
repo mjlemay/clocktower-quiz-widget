@@ -184,6 +184,10 @@ input {
   padding-bottom: 0;
   margin-bottom: 0;
 }
+.charTitle span {
+  font-weight: 300;
+  font-size: 0.75em;
+}
 
 .path {
   padding: 0;
@@ -191,10 +195,11 @@ input {
   margin-bottom: 10px;
   font-weight: 400;
   text-transform: uppercase;
+  vertical-align: baseline;
 }
 .path span {
-  font-weight: 300;
-  font-size: 0.75em;
+  opacity: 0.7;
+  font-size: 12px;
 }
 
 .health {
