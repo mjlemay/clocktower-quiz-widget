@@ -32,6 +32,13 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
   text-align: center;
 }
 
+.version {
+  position: absolute;
+  font-size: 12px;
+  bottom: 10px;
+  right: 4dvh;
+}
+
 .prompt {
   font-weight: 600;
   font-size: 22px;

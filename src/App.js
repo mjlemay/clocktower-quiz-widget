@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { jsPDF } from "jspdf";
+import { version } from '../package.json';
 
 import quiz from './quiz';
 
@@ -476,6 +477,7 @@ function App() {
           <div className="choices">
             <button className="choice" onClick={()=> setSection('quiz')}>START</button>
           </div>
+          <div className="version">ver. {version}</div>
         </div>
       )}
       {section === 'quiz' && (
