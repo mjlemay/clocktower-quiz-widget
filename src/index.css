@@ -105,7 +105,32 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
   color: #ffffff;
   pointer-events: none;
   text-shadow: 1px 1px 8px #fff;
+  border: 2px solid #fff;
 }
+
+.download { 
+  max-width: 200px;
+  min-width: 200px;
+  position: absolute;
+  right: 50px;
+  display: block;
+  font-weight:600;
+  color: #ccc;
+  border: 2px solid #666;
+  filter: drop-shadow(5px 5px 4px #000);
+  padding: 16px;
+  font-size: 18px;
+  border-radius: 10px;
+  background: rgb(55, 59, 77, 0.75);
+  margin: 16px 0;
+  cursor: pointer;
+}
+
+.choice:hover, .download:hover {
+  color: #ffffff;
+  text-shadow: 1px 1px 8px #fff;
+}
+
 
 input {
   background-color: transparent;
