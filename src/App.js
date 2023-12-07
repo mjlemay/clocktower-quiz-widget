@@ -75,7 +75,7 @@ const ctCopy = {
   south: {
     sub: 'HUNTER',
     description: 'The Path that has led you to the Clock Tower was an almost never ending slog of strange eldritch creatures, narrow filthy streets and an oppressive darkness that seemed to drain the light from everything it touched. Now after surviving such a harsh journey, nothing can deter you from catching your prey.',
-    A: `When a creature you can see, within 30 feet targets you with an attack or spell and your ranged Clock Tower Weapon is loaded, you can use your reaction to make a ranged attack against the attacker. If you hit the attacker's AC their attack orspell fails to hit you. You gain two Clock Tower Weapons oneof which is a light melee weapon and the other is a rangedweapon wit h a range of 15 feet. When you use the Attack Action with your Clock Tower Weapon you can attack with your other Clock Tower Weapon as a bonus action, You do not add your ability modifier to the damage of the bonusaction attack. Your Clock Tower Weapons take on the appearance of any light melee weapon of your choice and any single shot flintlock of your choice. This appearance can be changed anytime you return to the Clock Tower to rest.`,
+    A: `When a creature you can see, within 30 feet targets you with an attack or spell and your ranged Clock Tower Weapon is loaded, you can use your reaction to make a ranged attack against the attacker. If you hit the attacker's AC their attack orspell fails to hit you. You gain two Clock Tower Weapons one of which is a light melee weapon and the other is a ranged weapon with a range of 15 feet. When you use the Attack Action with your Clock Tower Weapon you can attack with your other Clock Tower Weapon as a bonus action, you do not add your ability modifier to the damage of the bonus action attack. Your Clock Tower Weapons take on the appearance of any light melee weapon of your choice and any single shot flintlock of your choice.`,
     B: `When you make a melee attack with you Clock Tower Weapon you can use a bonus action to attempt to shove the creature you have attacked. You gain a +1 to AC while two handing your Clock Tower Weapon. Your Clock Tower Weapon takes on the appearance of any two handed weapon of your choice. This appearance can be changed anytime you return to the Clock Tower to rest.`,
   }
 };
@@ -412,7 +412,7 @@ function App() {
     doc.setFontSize(7);
     doc.text('CLOCK TOWER HUMAN VARIANT TRAIT', 0.5, 8.8, {maxWidth: 2});
     doc.setFontSize(10);
-    doc.text(`${ctCharacter.traits[0]}`, 0.55, 9.1, {maxWidth: 2});
+    doc.text(`${ctCharacter.traits[0]}`, 0.5, 9, {maxWidth: 2});
 
     //Skill
     doc.setFontSize(7);
