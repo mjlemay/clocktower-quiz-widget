@@ -5,6 +5,7 @@ import { version } from '../package.json';
 import quiz from './quiz';
 
 const ASPECT_RATIO = 0.75; // ~3:4
+const PROF_BONUS = 2;
 const defaultCharacter = {
   cha: 13,
   con: 13,
@@ -184,6 +185,8 @@ function App() {
     return mod;
   }
 
+  const calcSavThrow = stat => { return Math.floor((stat - 10) / 2) + PROF_BONUS; }
+
   const modStr = stat => {
     const mod = abilityMod(stat);
     if (mod === 0 ) {
@@ -220,7 +223,7 @@ function App() {
   const buildCtCharSheet = useCallback(characterData => {
     const newCtAgent = JSON.parse(JSON.stringify(defaultctCharacter));
     //set description
-    newCtAgent.description = descTemplate;
+    newCtAgent.description = descTemplate.replace(/ average/g, '');
 
     //stats
     for (let i = 0; i < stats.length; i++) {
@@ -340,14 +343,18 @@ function App() {
     doc.text(modStr(wis), 0.79, 6.7, 'center');
     doc.text(modStr(cha), 0.79, 7.7, 'center');
 
-    //saving throws
-    const calcSavThrow = stat => { return Math.floor((stat - 10) / 2); }
-    doc.text(`${calcSavThrow(str)}`, 1.675, 2.95, 'center');
-    doc.text(`${calcSavThrow(dex)}`, 1.675, 3.16, 'center');
-    doc.text(`${calcSavThrow(con)}`, 1.675, 3.34, 'center');
-    doc.text(`${calcSavThrow(int)}`, 1.675, 3.52, 'center');
-    doc.text(`${calcSavThrow(wis)}`, 1.675, 3.71, 'center');
-    doc.text(`${calcSavThrow(cha)}`, 1.675, 3.9, 'center');
+    // saving throws
+    // CT agents don't have these saving throws
+    // doc.text(`${calcSavThrow(str)}`, 1.673, 2.95, 'center');
+    // doc.text(`${calcSavThrow(dex)}`, 1.673, 3.16, 'center');
+    // doc.text(`${calcSavThrow(con)}`, 1.673, 3.34, 'center');
+    // doc.text(`${calcSavThrow(int)}`, 1.673, 3.52, 'center');
+    doc.setFontSize(24); 
+    doc.text('•', 1.454, 3.785, 'center');
+    doc.text('•', 1.454, 3.975, 'center');
+    doc.setFontSize(8); 
+    doc.text(`+${calcSavThrow(wis)}`, 1.673, 3.71, 'center');
+    doc.text(`+${calcSavThrow(cha)}`, 1.673, 3.9, 'center');
     // Passive Perception
     doc.setFontSize(18);
     doc.text(`${parseFloat(modStr(wis)) + 10}`, 0.59, 8.42, 'center');
@@ -367,35 +374,37 @@ function App() {
 
     // Skills
     // the following aren't used in the class build:
-    // animalhandling, arcana, history, investigation, nature, religion
+    // animalhandling, nature
 
     const skillPosArr = [
-      {name: 'acrobatics' , x: 1.675, y: 4.56},
-      {name: 'animalhandling' , x: 1.675, y: 4.75},
-      {name: 'arcana' , x: 1.675, y: 4.94},
-      {name: 'athletics' , x: 1.675, y: 5.13},
-      {name: 'deception' , x: 1.675, y: 5.32},
-      {name: 'history' , x: 1.675, y: 5.51},
-      {name: 'insight' , x: 1.675, y: 5.7},
-      {name: 'intimidation' , x: 1.675, y: 5.89},
-      {name: 'investigation' , x: 1.675, y: 6.07},
-      {name: 'medicine' , x: 1.675, y: 6.26},
-      {name: 'nature' , x: 1.675, y: 6.45},
-      {name: 'perception' , x: 1.675, y: 6.62},
-      {name: 'performance' , x: 1.675, y: 6.82},
-      {name: 'persuasion' , x: 1.675, y: 7.01},
-      {name: 'religion' , x: 1.675, y: 7.19},
-      {name: 'sleightofhand' , x: 1.675, y: 7.39},
-      {name: 'survival' , x: 1.675, y: 7.57},
-      {name: 'stealth' , x: 1.675, y: 7.76},
+      {name: 'acrobatics', stat:'dex', x: 1.671, y: 4.57},
+      {name: 'animalhandling', stat:'wis', x: 1.671, y: 4.75},
+      {name: 'arcana', stat:'int', x: 1.671, y: 4.94},
+      {name: 'athletics', stat:'str', x: 1.671, y: 5.13},
+      {name: 'deception', stat:'cha', x: 1.671, y: 5.32},
+      {name: 'history', stat:'int', x: 1.671, y: 5.51},
+      {name: 'insight', stat:'wis', x: 1.671, y: 5.7},
+      {name: 'intimidation', stat:'cha', x: 1.671, y: 5.89},
+      {name: 'investigation', stat:'int', x: 1.671, y: 6.07},
+      {name: 'medicine', stat:'wis', x: 1.671, y: 6.26},
+      {name: 'nature', stat:'int', x: 1.671, y: 6.45},
+      {name: 'perception', stat:'wis', x: 1.671, y: 6.625},
+      {name: 'performance', stat:'cha', x: 1.671, y: 6.82},
+      {name: 'persuasion', stat:'cha', x: 1.671, y: 7.01},
+      {name: 'religion', stat:'int', x: 1.671, y: 7.19},
+      {name: 'sleightofhand', stat:'dex', x: 1.671, y: 7.39},
+      {name: 'survival', stat:'dex', x: 1.671, y: 7.57},
+      {name: 'stealth', stat:'wis', x: 1.671, y: 7.76},
     ]
-
-    doc.setFontSize(8);
 
     for (let index = 0; index < skillPosArr.length; index++) {
       const skill = skillPosArr[index];
       if (hasProf(skill.name)) {
-        doc.text(`${ctCharacter.professions[skill.name]}`, skill.x, skill.y, 'center');
+        const bonus = PROF_BONUS + parseInt(modStr(ctCharacter.stats[skill.stat]), 10)
+        doc.setFontSize(8);
+        doc.text(`+${bonus}`, skill.x, skill.y, 'center');
+        doc.setFontSize(26);
+        doc.text('•', skill.x - .223, skill.y + .075, 'center');
       }
     }
 
@@ -403,7 +412,7 @@ function App() {
     doc.setFontSize(7);
     doc.text('CLOCK TOWER HUMAN VARIANT TRAIT', 0.5, 8.8, {maxWidth: 2});
     doc.setFontSize(10);
-    doc.text(`${ctCharacter.traits[0]}`, 0.5, 9, {maxWidth: 2});
+    doc.text(`${ctCharacter.traits[0]}`, 0.55, 9.1, {maxWidth: 2});
 
     //Skill
     doc.setFontSize(7);

@@ -129,6 +129,37 @@ const quiz = {
         ]
       },
       {
+        prompt: `But Throughout everything it's not just your body that has grown. Your mind maybe even your soul has come so far in your journey with you.`,
+        question: `Which of your Abilities has grown the most?`,
+        limit: 1,
+        choices: [
+          {
+            text:`Your ability to make choices.`,
+            mods: [
+              {east:`+`, arcana:`+`},
+            ]
+          },
+          {
+            text:`Your ability to understand.`,
+            mods: [
+              {north:`+`, religion:`+`},
+            ]
+          },
+          {
+            text:`Your ability to trust your gut.`,
+            mods: [
+              {west:`+`, history:`+`},
+            ]
+          },
+          {
+            text:`My reflexes.`,
+            mods: [
+              {south:`+`, investigation:`+`},
+            ]
+          }
+        ]
+      },
+      {
         prompt: `No matter how strong you've gotten, your memory has faded. Even these memories you can't be sure if they're correct.
          Now as you carry onward you don’t even know what your seeking. But it draws you forward. Ever forward.
           Your close now. Closer than you’ve ever been. But your too tired to carry on right now--you need to rest.
@@ -145,7 +176,7 @@ const quiz = {
           {
             text:`A field No bigger or smaller than most.`,
             mods: [
-              {bodyWeight:`average weight`},
+              {bodyWeight:`common weight`},
             ]
           },
           {
@@ -464,13 +495,13 @@ const quiz = {
             ]
           },
           {
-            text:`I check all of my equipment and continue.`,
+            text:`Shrug off the brief moment of being sunblind and head inside`,
             mods: [
               {trinket:`Game Set`},
             ]
           },
           {
-            text:`I catch my breath for a while, then carry on.`,
+            text:`I hardly even notice, I’m too determined to carry on.`,
             mods: [
               {trinket:`Small Idol`},
             ]
