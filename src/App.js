@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { jsPDF } from "jspdf";
 import quiz from './quiz';
 
-const VERSION = '0.1.4'; // should match package json.
+const VERSION = '0.1.5'; // should match package json.
 const ASPECT_RATIO = 0.75; // ~3:4
 const PROF_BONUS = 2;
 const defaultCharacter = {

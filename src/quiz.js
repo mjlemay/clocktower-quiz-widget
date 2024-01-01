@@ -436,13 +436,13 @@ const quiz = {
             ]
           },
           {
-            text:`A day at most, I don't usually lose track of time.`,
+            text:`Shrug of the brief moment of being sunblind and head inside.`,
             mods: [
               {accessory:`spectacles`},
             ]
           },
           {
-            text:`Maybe a couple of days? It doesn't matter, I'll carry on no matter the time.`,
+            text:`I hardly even notice, I’m too determined to carry on.`,
             mods: [
               {accessory:`jewelry`},
             ]
