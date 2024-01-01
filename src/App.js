@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { jsPDF } from "jspdf";
-import { version } from '../package.json';
-
 import quiz from './quiz';
 
+const VERSION = '0.1.4'; // should match package json.
 const ASPECT_RATIO = 0.75; // ~3:4
 const PROF_BONUS = 2;
 const defaultCharacter = {
@@ -486,7 +485,7 @@ function App() {
           <div className="choices">
             <button className="choice" onClick={()=> setSection('quiz')}>START</button>
           </div>
-          <div className="version">ver. {version}</div>
+          <div className="version">ver. {VERSION}</div>
         </div>
       )}
       {section === 'quiz' && (
